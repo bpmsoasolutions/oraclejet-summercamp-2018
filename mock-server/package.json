@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "start": "./node_modules/.bin/json-server --watch employeeData.json"
+    },
+    "dependencies": {
+        "json-server": "^0.14.0"
+    }
+}
