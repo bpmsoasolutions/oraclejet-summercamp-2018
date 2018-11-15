@@ -18,4 +18,4 @@ There is a fix on the CRUD part updating the salary, because it expect a number 
 4. Run `npm start` and it should up `mock-server` and oracle jet cli with the app
 5. Have fun
 
-Note: Plaese, have 2 terminals, one is running the `npm start` (mock and app), on antoher terminal go to directly to the app folder to run `ojet cli` commands when is needed
+Note: Plaese, have 2 terminals, one is running the `npm start` (mock and app), on another terminal go to directly to the app folder to run `ojet cli` commands when is needed
