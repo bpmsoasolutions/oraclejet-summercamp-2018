@@ -15,9 +15,13 @@ define([
     'ojs/ojknockout',
     'ojs/ojarraytabledatasource',
     'ojs/ojoffcanvas'
-], function(oj, ko, moduleUtils) {
+], function (oj, ko, moduleUtils) {
     function ControllerViewModel() {
         var self = this;
+
+        self.dashboardLabel = ko.observable(
+            oj.Translations.getTranslatedString('dashboardLabel')
+        );
 
         // Media queries for repsonsive layouts
         var smQuery = oj.ResponsiveUtils.getFrameworkQuery(
@@ -41,8 +45,8 @@ define([
 
         self.moduleConfig = ko.observable({ view: [], viewModel: null });
 
-        self.loadModule = function() {
-            ko.computed(function() {
+        self.loadModule = function () {
+            ko.computed(function () {
                 var name = self.router.moduleConfig.name();
                 var viewPath = 'views/' + name + '.html';
                 var modelPath = 'viewModels/' + name;
@@ -50,7 +54,7 @@ define([
                     moduleUtils.createView({ viewPath: viewPath }),
                     moduleUtils.createViewModel({ viewModelPath: modelPath })
                 ]);
-                masterPromise.then(function(values) {
+                masterPromise.then(function (values) {
                     self.moduleConfig({ view: values[0], viewModel: values[1] });
                 });
             });
@@ -87,7 +91,7 @@ define([
 
         // Drawer
         // Close offcanvas on medium and larger screens
-        self.mdScreen.subscribe(function() {
+        self.mdScreen.subscribe(function () {
             oj.OffcanvasUtils.close(self.drawerParams);
         });
         self.drawerParams = {
@@ -96,11 +100,11 @@ define([
             content: '#pageContent'
         };
         // Called by navigation drawer toggle button and after selection of nav drawer item
-        self.toggleDrawer = function() {
+        self.toggleDrawer = function () {
             return oj.OffcanvasUtils.toggle(self.drawerParams);
         };
         // Add a close listener so we can move focus back to the toggle button when the drawer closes
-        $('#navDrawer').on('ojclose', function() {
+        $('#navDrawer').on('ojclose', function () {
             $('#drawerToggleButton').focus();
         });
 
@@ -144,9 +148,9 @@ define([
             )
         ]);
 
-        self.setLangAction = function(event) {
+        self.setLangAction = function (event) {
             var newLang = event.target.value;
-            oj.Config.setLocale(newLang, function() {
+            oj.Config.setLocale(newLang, function () {
                 $('html').attr('lang', newLang);
                 if (newLang === 'ar-EG') {
                     $('html').attr('dir', 'rtl');
@@ -160,9 +164,6 @@ define([
             });
         };
 
-        self.dashboardLabel = ko.observable(
-            oj.Translations.getTranslatedString('dashboardLabel')
-        );
     }
 
     return new ControllerViewModel();
