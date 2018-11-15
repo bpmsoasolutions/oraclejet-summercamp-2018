@@ -1,6 +1,6 @@
 # Oracle Jet
 
-This is Oracle Jet training based on what we did in Oracle Summer Camp 2018. Go to the `TRAINING.md` and you can follow the instructions. 
+This is Oracle Jet training based on what we did in Oracle Summer Camp 2018 and in Innovation Developer Day. Go to the `TRAINING.md` and you can follow the instructions. 
 
 Also there are public in this github link: 
 [https://github.com/geertjanw/ojet-training/blob/master/README.md](https://github.com/geertjanw/ojet-training/blob/master/README.md)
